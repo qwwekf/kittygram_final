@@ -1,27 +1,46 @@
-version: '3'
+services:
+  db:
+    image: postgres:13
+    container_name: db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    env_file:
+      - .env
+    restart: always
+
+  backend:
+    build: ./backend
+    container_name: backend
+    volumes:
+      - static:/static
+      - media:/media
+    depends_on:
+      - db
+    env_file:
+      - .env
+    restart: always
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    volumes:
+      - static:/app/build/static
+    restart: always
+
+  gateway:
+    build: ./nginx
+    container_name: gateway
+    ports:
+      - "80:80"
+    volumes:
+      - static:/static
+      - media:/media
+    depends_on:
+      - backend
+      - frontend
+    restart: always
 
 volumes:
   pg_data:
   static:
-
-services:
-  db:
-    image: postgres:13
-    volumes:
-      - pg_data:/var/lib/postgresql/data
-  backend:
-    build: ./backend/
-    env_file: .env
-  frontend:
-    env_file: .env
-    build: ./frontend/
-    command: cp -r /app/build/. /static/
-    volumes:
-      - static:/static
-  gateway:
-    build: ./nginx/
-    env_file: .env
-    ports:
-      - 9000:80
-    volumes:
-      - static:/static
+  media:

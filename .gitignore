@@ -147,6 +147,92 @@ dmypy.json
 
 # папки со статикой и медиа
 media/
+static/           # <-- ДОБАВИТЬ! Папка со статикой
 
-# Others
-node_modules
+# Docker
+*.pid             # <-- ДОБАВИТЬ! Файлы PID процессов
+docker-compose.override.yml  # <-- ДОБАВИТЬ! Личные настройки Docker
+
+# Node.js
+node_modules/     # Уже есть, но оставлю для порядка
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json # <-- ДОБАВИТЬ! Можно не хранить в Git (но в проекте обычно хранят)
+build/            # <-- ДОБАВИТЬ! Собранный фронтенд
+dist/             # <-- ДОБАВИТЬ! Собранный фронтенд
+
+# Дополнительные файлы Python
+*.pyo
+*.pyd
+
+# Файлы логов
+logs/
+*.log
+
+# Временные файлы
+tmp/
+temp/
+
+# Файлы бэкапов
+*.bak
+*.backup
+*.swp
+*.swo
+
+# Файлы с секретами
+.env.local
+.env.*.local
+*.pem
+*.key
+*.crt
+
+# Токены и ключи
+*.p12
+*.pfx
+
+# Файлы отладки
+*.db
+*.sqlite
+*.sqlite3
+
+# Архивы
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Файлы IDE для PyCharm
+.idea/
+*.iml
+
+# Файлы IDE для VSCode
+.vscode/
+*.code-workspace
+
+# Файлы для macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Thumbnails
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Файлы тестов
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+*.cover
+*.py,cover
+
+# Настройки для pre-commit
+.pre-commit-config.yaml
+
+# Сгенерированные файлы
+*.generated.py
+*.min.js
+*.min.css
