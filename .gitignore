@@ -154,7 +154,7 @@ static/           # <-- ДОБАВИТЬ! Папка со статикой
 docker-compose.override.yml  # <-- ДОБАВИТЬ! Личные настройки Docker
 
 # Node.js
-node_modules/     # Уже есть, но оставлю для порядка
+node_modules/     
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
