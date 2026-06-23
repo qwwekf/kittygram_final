@@ -1,4 +1,4 @@
 repo_owner: qwwekf
-taski_domain: https://localhost/ # Или порт, на котором работает Taski
-kittygram_domain: https://localhost/ # Порт Kittygram
+taski_domain: https://192.168.88.54/
+kittygram_domain: https://192.168.88.54/
 dockerhub_username: qwwekf
