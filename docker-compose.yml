@@ -24,6 +24,7 @@ services:
     build: ./frontend
     container_name: frontend
     volumes:
+      - frontend_build:/app/build  # <--- ИЗМЕНЕНО
       - static:/app/build/static
     restart: always
 
@@ -33,6 +34,7 @@ services:
     ports:
       - "80:80"
     volumes:
+      - frontend_build:/usr/share/nginx/html  # <--- ДОБАВЛЕНО
       - static:/static
       - media:/media
     depends_on:
@@ -44,3 +46,4 @@ volumes:
   pg_data:
   static:
   media:
+  frontend_build:  # <--- ДОБАВЛЕНО
